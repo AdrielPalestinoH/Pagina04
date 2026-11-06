@@ -1,12 +1,12 @@
+
 public class LoginService {
 
     public boolean autenticar(String usuario, String password) {
-            // Validación básica para simular el inicio de sesión
-            if (usuario == null || password == null) {
-                return false;
-            }
+        // Corrección para el Issue #2: Validar nulos explícitamente
+        if (usuario == null || password == null) {
+            return false;
+        }
 
-            // Simulación: Credenciales válidas
-            return usuario.equals("camila@test.com") && password.equals("Password123!");
+        return usuario.equals("camila@test.com") && password.equals("Password123!");
     }
 }
