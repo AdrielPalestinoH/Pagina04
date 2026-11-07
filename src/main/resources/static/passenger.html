@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ILLEGO - Monitoreo de Rutas en Tiempo Real</title>
+
+    <!-- Leaflet CSS para el mapa -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="css/passenger.css">
+</head>
+<body>
+
+<!-- Barra de búsqueda y control lateral -->
+<aside class="sidebar">
+    <header class="brand">
+        <h1>iLlego 🚌</h1>
+        <p>Rutas en tiempo real</p>
+    </header>
+
+    <section class="search-box">
+        <label for="route-select">Selecciona una ruta:</label>
+        <select id="route-select">
+            <option value="">Cargando rutas...</option>
+        </select>
+    </section>
+
+    <!-- Información de la unidad seleccionada / cercana -->
+    <section id="info-panel" class="info-panel">
+        <h3>Detalles de la ruta</h3>
+        <p class="placeholder-text">Selecciona una ruta para ver las unidades disponibles y su tiempo de llegada.</p>
+
+        <div id="bus-details" class="bus-details hidden">
+            <div class="detail-card">
+                <span class="label">Unidad:</span>
+                <span id="unit-name" class="value">-</span>
+            </div>
+            <div class="detail-card">
+                <span class="label">Próxima Parada:</span>
+                <span id="next-stop" class="value">-</span>
+            </div>
+            <div class="detail-card">
+                <span class="label">Tiempo Estimado (ETA):</span>
+                <span id="eta-time" class="value highlight">-</span>
+            </div>
+        </div>
+    </section>
+</aside>
+
+<!-- Contenedor del Mapa -->
+<main id="map"></main>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/passenger.js"></script>
+</body>
+</html>
