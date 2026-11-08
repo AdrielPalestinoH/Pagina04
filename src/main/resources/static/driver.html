@@ -4,55 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ILLEGO - Panel del Conductor</title>
-    <!-- Tailwind CSS CDN para diseño mobile-first rápido -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Enlace a tu propio archivo CSS local -->
+    <link rel="stylesheet" href="css/driver.css">
 </head>
-<body class="bg-gray-100 font-sans h-screen flex flex-col justify-between">
+<body>
 
 <!-- Header / Estado de la Sesión -->
-<header class="bg-blue-600 text-white p-4 shadow-md">
-    <h1 class="text-xl font-bold text-center">ILLEGO - Conductor</h1>
-    <div id="status-bar" class="flex justify-between items-center mt-2 text-sm bg-blue-700 px-3 py-1 rounded">
-        <span>Estado GPS: <strong id="gps-status" class="text-yellow-300">Buscando...</strong></span>
+<header>
+    <h1>ILLEGO - Conductor</h1>
+    <div class="status-bar">
+        <span>Estado GPS: <strong id="gps-status" style="color: #fde047;">Buscando...</strong></span>
         <span>Velocidad: <strong id="speed-display">0 km/h</strong></span>
     </div>
 </header>
 
 <!-- Contenido Principal -->
-<main class="p-4 flex-1 flex flex-col justify-center max-w-md mx-auto w-full space-y-6">
+<main>
 
     <!-- Selección de Ruta / Unidad Asignada -->
-    <div class="bg-white p-4 rounded-xl shadow">
-        <h2 class="text-gray-700 font-semibold mb-2">Asignación actual:</h2>
-        <select id="route-select" class="w-full p-3 border rounded-lg bg-gray-50 text-gray-800 text-lg">
+    <div class="card-route">
+        <h2>Asignación actual:</h2>
+        <select id="route-select">
             <option value="">Cargando rutas asignadas...</option>
         </select>
     </div>
 
     <!-- Panel de Control del Viaje (Botones Grandes) -->
-    <div class="space-y-4">
-        <button id="btn-start" onclick="startTrip()" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-5 rounded-2xl shadow-lg text-2xl transition active:scale-95">
+    <div class="controls">
+        <button id="btn-start" class="btn-action btn-start" onclick="startTrip()">
             INICIAR TURNO / VIAJE
         </button>
 
-        <button id="btn-end" onclick="endTrip()" disabled class="w-full bg-red-500 opacity-50 cursor-not-allowed hover:bg-red-600 text-white font-bold py-5 rounded-2xl shadow-lg text-2xl transition active:scale-95">
+        <button id="btn-end" class="btn-action btn-end" onclick="endTrip()" disabled>
             TERMINAR VIAJE
         </button>
     </div>
 
-    <!-- Consola de Estado / Log simple para depurar -->
-    <div class="bg-gray-900 text-green-400 p-3 rounded-lg text-xs font-mono h-28 overflow-y-auto" id="log-box">
+    <!-- Consola de Estado / Log para depurar -->
+    <div id="log-box" class="log-box">
         [Sistema] Esperando acción del conductor...
     </div>
 
 </main>
 
 <!-- Footer -->
-<footer class="bg-gray-200 text-center py-2 text-xs text-gray-600">
+<footer>
     ILLEGO Telemetry System &copy; 2026
 </footer>
 
-<!-- Script de lógica conectado a tu carpeta js -->
+<!-- Script de lógica -->
 <script src="/js/driver.js"></script>
 </body>
 </html>
