@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ILLEGO - Administración</title>
+
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+
+<body>
+
+<div class="admin-container">
+
+    <!-- MENÚ LATERAL -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <h2>ILLEGO</h2>
+            <span>Administración</span>
+        </div>
+
+        <nav>
+
+            <button onclick="mostrarSeccion('dashboard')">
+                Dashboard
+            </button>
+
+            <button onclick="mostrarSeccion('rutas')">
+                Rutas
+            </button>
+
+            <button onclick="mostrarSeccion('unidades')">
+                Unidades
+            </button>
+
+            <button onclick="mostrarSeccion('choferes')">
+                Choferes
+            </button>
+
+            <button onclick="mostrarSeccion('paradas')">
+                Paradas
+            </button>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="main-content">
+
+        <header class="topbar">
+            <h1>Panel de Control</h1>
+
+            <div class="admin-user">
+                Administrador
+            </div>
+        </header>
+
+
+        <!-- DASHBOARD -->
+        <section id="dashboard" class="section">
+
+            <h2>Resumen del sistema</h2>
+
+            <div class="cards">
+
+                <div class="card">
+                    <span>Unidades</span>
+                    <strong id="total-unidades">0</strong>
+                </div>
+
+                <div class="card">
+                    <span>Rutas</span>
+                    <strong id="total-rutas">0</strong>
+                </div>
+
+                <div class="card">
+                    <span>Choferes</span>
+                    <strong id="total-choferes">0</strong>
+                </div>
+
+                <div class="card">
+                    <span>Paradas</span>
+                    <strong id="total-paradas">0</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RUTAS -->
+        <section id="rutas" class="section hidden">
+
+            <div class="section-header">
+
+                <h2>Gestión de Rutas</h2>
+
+                <button class="btn-primary"
+                        onclick="abrirModalRuta()">
+                    + Nueva ruta
+                </button>
+
+            </div>
+
+            <input
+                    type="text"
+                    id="buscar-ruta"
+                    placeholder="Buscar ruta..."
+                    onkeyup="filtrarTabla('tabla-rutas', this.value)"
+            >
+
+            <table id="tabla-rutas">
+
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Origen</th>
+                    <th>Destino</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+
+                <tbody id="rutas-body">
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+        <!-- UNIDADES -->
+        <section id="unidades" class="section hidden">
+
+            <div class="section-header">
+
+                <h2>Gestión de Unidades</h2>
+
+                <button class="btn-primary"
+                        onclick="abrirModalUnidad()">
+                    + Nueva unidad
+                </button>
+
+            </div>
+
+            <input
+                    type="text"
+                    placeholder="Buscar unidad..."
+                    onkeyup="filtrarTabla('tabla-unidades', this.value)"
+            >
+
+            <table id="tabla-unidades">
+
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Unidad</th>
+                    <th>Placas</th>
+                    <th>Ruta</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+
+                <tbody id="unidades-body">
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+        <!-- CHOFERES -->
+        <section id="choferes" class="section hidden">
+
+            <div class="section-header">
+
+                <h2>Gestión de Choferes</h2>
+
+                <button class="btn-primary"
+                        onclick="abrirModalChofer()">
+                    + Nuevo chofer
+                </button>
+
+            </div>
+
+            <input
+                    type="text"
+                    placeholder="Buscar chofer..."
+                    onkeyup="filtrarTabla('tabla-choferes', this.value)"
+            >
+
+            <table id="tabla-choferes">
+
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Licencia</th>
+                    <th>Unidad</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+
+                <tbody id="choferes-body">
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+        <!-- PARADAS -->
+        <section id="paradas" class="section hidden">
+
+            <div class="section-header">
+
+                <h2>Gestión de Paradas</h2>
+
+                <button class="btn-primary"
+                        onclick="abrirModalParada()">
+                    + Nueva parada
+                </button>
+
+            </div>
+
+            <input
+                    type="text"
+                    placeholder="Buscar parada..."
+                    onkeyup="filtrarTabla('tabla-paradas', this.value)"
+            >
+
+            <table id="tabla-paradas">
+
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Ubicación</th>
+                    <th>Ruta</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+
+                <tbody id="paradas-body">
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="js/admin.js"></script>
+
+</body>
+</html>
